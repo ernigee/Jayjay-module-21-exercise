@@ -11,7 +11,7 @@ public class BrowserMethodTest {
         driver.get("https://www.saucedemo.com/");
 
      String title = driver.getTitle();
-      String currentURL = driver.getCurrentUrl();
+     String currentURL = driver.getCurrentUrl();
 
         System.out.println("Title pada halaman web: " + title);
         System.out.println("URL yang diakses saat ini adalah: " + currentURL);
