@@ -1,31 +1,30 @@
+package JUnitTest;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class BrowserMethodTest {
+import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SimpleSeleniumTest {
 
     @Test
-    public void TestBrowserMethod(){
+    public void LoginTest(){
         WebDriver driver = WebDriverManager.chromedriver().create();
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         driver.get("https://www.saucedemo.com/");
-
-     String title = driver.getTitle();
-     String currentURL = driver.getCurrentUrl();
-
-        System.out.println("Title pada halaman web: " + title);
-        System.out.println("URL yang diakses saat ini adalah: " + currentURL);
-    }
-
-    @Test
-    public void saudeDemoTest() throws InterruptedException {
-        WebDriver driver = WebDriverManager.chromiumdriver().create();
-        driver.get("https://www.saucedemo.com/");
-
         driver.findElement(By.cssSelector("input#user-name")).sendKeys("standard_user");
         driver.findElement(By.cssSelector("input#password")).sendKeys("secret_sauce");
         driver.findElement(By.cssSelector("input#login-button")).click();
 
-        Thread.sleep(2000);
+        assertEquals("Sauce Labs Backpack", driver.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div")).getText());
+
     }
+
+
 }

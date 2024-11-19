@@ -1,5 +1,6 @@
+package SeleniumTestExercise;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.bouncycastle.crypto.engines.EthereumIESEngine;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
