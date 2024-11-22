@@ -1,7 +1,9 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertTrue;
 
 public class LoginPage {
     WebDriver driver;
@@ -14,6 +16,10 @@ public class LoginPage {
         this.driver= driver;
     };
 
+    public void goToLoginPage (){
+        driver.get("https://www.saucedemo.com");
+    }
+
     public void inputUserName (String username){
         driver.findElement(usernameInputText).sendKeys(username);
     }
@@ -24,6 +30,10 @@ public class LoginPage {
 
     public void clickLoginButton (){
         driver.findElement(loginButton).click();
+    }
+
+    public void validateErrorAppear (String errorMessage){
+        assertTrue(driver.getPageSource().contains(errorMessage));
     }
 
 

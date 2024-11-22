@@ -1,7 +1,7 @@
-package JUnitTest;
+package jUnitTest;
 
-import Pages.HomePage;
-import Pages.LoginPage;
+import pages.HomePage;
+import pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
